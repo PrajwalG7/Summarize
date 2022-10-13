@@ -32,7 +32,7 @@ export default function addBook() {
     };
 
     const res = await fetch(
-      `${process.env.SERVER}/api/form?` +
+      `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/form?` +
         new URLSearchParams({
           API_ROUTE_SECRET: process.env.API_ROUTE_SECRET,
         }),
