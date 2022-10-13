@@ -3,12 +3,24 @@ import Link from "next/link";
 
 export default function addBook() {
   const result = false;
+
+  function capitalize(input) {
+    var words = input.trim().split(" ");
+    var CapitalizedWords = [];
+    words.forEach((element) => {
+      CapitalizedWords.push(
+        element[0].toUpperCase() + element.slice(1, element.length)
+      );
+    });
+    return CapitalizedWords.join(" ");
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     const data = {
-      bookTitle: event.target.bookTitle.value,
-      bookAuthor: event.target.bookAuthor.value,
+      bookTitle: capitalize(event.target.bookTitle.value),
+      bookAuthor: capitalize(event.target.bookAuthor.value),
       keypoint1: event.target.keypoint1.value,
       keypoint2: event.target.keypoint2.value,
       keypoint3: event.target.keypoint3.value,
@@ -31,8 +43,9 @@ export default function addBook() {
       description10: event.target.description10.value,
     };
 
+    //https://summarize-books.vercel.app
     const res = await fetch(
-      `https://summarize-books.vercel.app/api/form?` +
+      `http://localhost:3000/api/form?` +
         new URLSearchParams({
           API_ROUTE_SECRET: process.env.API_ROUTE_SECRET,
         }),
