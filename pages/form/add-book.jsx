@@ -43,9 +43,8 @@ export default function addBook() {
       description10: event.target.description10.value,
     };
 
-    //https://summarize-books.vercel.app
     const res = await fetch(
-      `http://localhost:3000/api/form?` +
+      `https://summarize-books.vercel.app/api/form?` +
         new URLSearchParams({
           API_ROUTE_SECRET: process.env.API_ROUTE_SECRET,
         }),
