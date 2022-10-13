@@ -32,7 +32,7 @@ export default function addBook() {
     };
 
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/form?` +
+      `https://summarize-books.vercel.app/api/form?` +
         new URLSearchParams({
           API_ROUTE_SECRET: process.env.API_ROUTE_SECRET,
         }),
