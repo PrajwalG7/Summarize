@@ -110,6 +110,7 @@ export async function getStaticProps() {
       props: {
         message: JSON.parse(JSON.stringify(posts)),
       },
+      revalidate: 10,
     };
   } catch (error) {
     // return the error
@@ -117,7 +118,6 @@ export async function getStaticProps() {
       props: {
         message: JSON.parse(JSON.stringify("Something went wrong")),
       },
-      revalidate: 10,
     };
   }
 }
