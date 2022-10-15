@@ -97,7 +97,7 @@ const booksPage = ({ message }) => {
     </div>
   );
 };
-export async function getStaticProps() {
+export async function getServerSideProps() {
   try {
     // connect to the database
     let { db } = await connectToDatabase();
@@ -110,7 +110,7 @@ export async function getStaticProps() {
       props: {
         message: JSON.parse(JSON.stringify(posts)),
       },
-      revalidate: 10,
+      // revalidate: 10,
     };
   } catch (error) {
     // return the error
